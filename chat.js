@@ -1,26 +1,26 @@
 const server = require('net').createServer();
+const randomName = require('random-name');
 console.log("---Listening to Sockets---");
 let sockets = {};
-let socketNumber = 0;
 
 server.on('connection', socket => {
     console.log("Client Connected");
-    socket.id = socketNumber++;
-    sockets[socket.id] = socket;
-    socket.write("Welcome Mr. " + socket.id + "\n")
+    socket.name = randomName.first();
+    sockets[socket.name] = socket;
+    socket.write("Welcome Mr. " + socket.name + "\n")
 
     socket.on('data', data => {
         Object.entries(sockets).forEach(([key, s]) => {
-            if (!(s.id === socket.id)) {
-                s.write(socket.id + ':');
+            if (!(s.name === socket.name)) {
+                s.write(socket.name + ': ');
                 s.write(data);
             }
         });
     });
 
     socket.on('end', () => {
-        delete sockets[socket.id];
-        console.log("Mr. " + socket.id + " has disconnected.\n");
+        delete sockets[socket.name];
+        console.log("Mr. " + socket.name + " has disconnected.\n");
     });
 });
 

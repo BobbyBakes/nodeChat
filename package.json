@@ -1,0 +1,26 @@
+{
+  "name": "nodechat",
+  "version": "1.0.0",
+  "description": "A Server Side Chat App",
+  "main": "chat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BobbyBakes/nodeChat.git"
+  },
+  "keywords": [
+    "node",
+    "chat"
+  ],
+  "author": "Bobby Baker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BobbyBakes/nodeChat/issues"
+  },
+  "homepage": "https://github.com/BobbyBakes/nodeChat#readme",
+  "dependencies": {
+    "random-name": "^0.1.2"
+  }
+}
